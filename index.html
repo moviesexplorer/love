@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Marry Me? ❤️</title>
+    <title>Our Love Story ❤️</title>
     <style>
         /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,8 +12,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
             overflow-x: hidden;
             position: relative;
             background: #0a0510;
@@ -30,7 +29,6 @@
             animation: twinkle 3s infinite alternate;
         }
         @keyframes twinkle { 0% { opacity: 0.2; transform: scale(0.5); } 100% { opacity: 1; transform: scale(1.2); } }
-
         .shooting-star {
             position: absolute; width: 3px; height: 3px; background: #fff; border-radius: 50%;
             box-shadow: 0 0 20px #fff, 0 0 40px #fff;
@@ -46,8 +44,7 @@
         /* ===== FLOATING ROSE PETALS ===== */
         .petal {
             position: fixed; font-size: 30px; pointer-events: none; z-index: 1;
-            animation: fallPetal linear forwards;
-            opacity: 0.7;
+            animation: fallPetal linear forwards; opacity: 0.7;
         }
         @keyframes fallPetal {
             0% { transform: translateY(-50px) rotate(0deg) scale(1); opacity: 0.8; }
@@ -56,13 +53,12 @@
 
         /* ===== MAIN CONTAINER ===== */
         .container {
-            max-width: 820px; width: 100%;
+            max-width: 850px; width: 100%;
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(15px); border-radius: 40px;
             padding: 45px 35px; box-shadow: 0 30px 80px rgba(233, 30, 99, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative; z-index: 10;
+            animation: fadeInUp 1.2s ease; position: relative; z-index: 10;
         }
 
         @keyframes fadeInUp {
@@ -75,17 +71,18 @@
         @keyframes fall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
         @keyframes glowPulse { 0%, 100% { text-shadow: 0 0 10px rgba(233, 30, 99, 0.3); } 50% { text-shadow: 0 0 30px rgba(233, 30, 99, 0.8); } }
         @keyframes spinRing { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
 
         /* ===== HEADER ===== */
-        .header { text-align: center; margin-bottom: 20px; }
-        .heart-icon { font-size: 70px; animation: heartbeat 1.8s infinite; display: inline-block; filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.4)); }
-        .header h1 { font-size: 3rem; color: #c2185b; margin: 10px 0 5px; font-weight: 800; letter-spacing: 1px; }
-        .header p { color: #ad1457; font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .heart-icon { font-size: 80px; animation: heartbeat 1.8s infinite; display: inline-block; filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.4)); }
+        .header h1 { font-size: 3.5rem; color: #c2185b; margin: 15px 0 5px; font-weight: 800; letter-spacing: 1px; }
+        .header p { color: #ad1457; font-size: 1.3rem; font-weight: 300; letter-spacing: 2px; }
 
-        /* ===== POETRY HERO ===== */
-        .poetry-hero { text-align: center; padding: 10px 0; }
+        /* ===== POETRY ===== */
+        .poetry-hero { text-align: center; padding: 10px 0 20px; }
         .poetry-box {
-            background: linear-gradient(145deg, #fff0f3, #ffffff); border-radius: 30px; padding: 30px 25px;
+            background: linear-gradient(145deg, #fff0f3, #ffffff); border-radius: 30px; padding: 35px 25px;
             border-left: 8px solid #e91e63; border-right: 8px solid #e91e63;
             box-shadow: 0 10px 40px rgba(233, 30, 99, 0.15); position: relative; max-width: 600px; margin: 0 auto;
         }
@@ -93,10 +90,10 @@
         .poetry-box::after { content: '❤️'; position: absolute; bottom: -15px; right: -15px; font-size: 40px; animation: heartbeat 2s infinite; }
         .poetry-box h2 { font-size: 2rem; color: #c2185b; margin-bottom: 15px; font-weight: 700; }
         .poetry-box p { color: #555; font-size: 1.15rem; line-height: 2.1; font-style: italic; font-family: 'Georgia', serif; margin: 0 auto; }
-        .poetry-box .author { display: block; margin-top: 15px; color: #ad1457; font-weight: 700; font-size: 1.1rem; font-style: normal; }
+        .poetry-box .author { display: block; margin-top: 15px; color: #ad1457; font-weight: 700; font-size: 1.1rem; }
 
         /* ===== FEATURES ===== */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 25px; margin: 40px 0; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 25px; margin: 30px 0; }
         .feature-card {
             background: #ffffff; padding: 30px 15px 25px; border-radius: 25px; text-align: center;
             box-shadow: 0 10px 30px rgba(233, 30, 99, 0.10); transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -130,59 +127,97 @@
         .meter-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #f06292, #e91e63, #ad1457, #880e4f); border-radius: 50px; animation: fillMeter 3.5s ease forwards; box-shadow: 0 0 20px rgba(233, 30, 99, 0.3); }
         .meter-text { margin-top: 15px; font-size: 1.5rem; font-weight: 700; color: #880e4f; animation: glowPulse 2s infinite; }
 
-        /* ===== PROPOSAL SECTION WITH SPINNING RING ===== */
+        /* ===== OUR BEAUTIFUL JOURNEY ===== */
+        .journey { margin: 40px 0; }
+        .journey h2 { text-align: center; color: #c2185b; font-size: 2rem; margin-bottom: 25px; }
+        .timeline {
+            display: flex; flex-direction: column; gap: 20px; position: relative; padding-left: 20px;
+            border-left: 3px solid #e91e63;
+        }
+        .timeline-item {
+            background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-left: 10px; position: relative;
+        }
+        .timeline-item::before {
+            content: '❤️'; position: absolute; left: -25px; top: 20px; font-size: 20px;
+            background: #fff; padding: 2px; border-radius: 50%;
+        }
+        .timeline-item h4 { color: #ad1457; font-size: 1.1rem; margin-bottom: 5px; }
+        .timeline-item p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+        /* ===== 10 REASONS ===== */
+        .reasons { margin: 40px 0; }
+        .reasons h2 { text-align: center; color: #c2185b; font-size: 2rem; margin-bottom: 25px; }
+        .reason-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .reason-card {
+            background: #fff; padding: 20px; border-radius: 15px; text-align: center;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.08); border: 1px solid rgba(233, 30, 99, 0.1);
+            transition: 0.3s;
+        }
+        .reason-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(233, 30, 99, 0.15); }
+        .reason-card .num { color: #e91e63; font-size: 1.5rem; font-weight: 800; display: block; margin-bottom: 5px; }
+        .reason-card p { color: #555; font-size: 0.95rem; line-height: 1.5; }
+
+        /* ===== THE GIFT ===== */
+        .gift-section { margin: 40px 0; text-align: center; background: linear-gradient(145deg, #fff0f3, #ffffff); padding: 30px; border-radius: 30px; border: 1px solid rgba(233, 30, 99, 0.1); }
+        .gift-section h2 { color: #c2185b; font-size: 2rem; margin-bottom: 10px; }
+        .gift-section .gift-box { font-size: 100px; display: block; animation: float 3s ease-in-out infinite; margin: 15px 0; }
+        .gift-section p { color: #555; font-size: 1.1rem; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+
+        /* ===== FINAL WORDS ===== */
+        .final-words { margin: 40px 0; text-align: center; }
+        .final-words h2 { color: #c2185b; font-size: 2rem; margin-bottom: 15px; }
+        .final-words p { color: #444; font-size: 1.1rem; line-height: 2; font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; }
+
+        /* ===== PROPOSAL ===== */
         .proposal-section {
             text-align: center; background: linear-gradient(145deg, #fff, #fce4ec); border-radius: 30px;
-            padding: 35px 20px; margin: 30px 0; border: 2px solid rgba(233, 30, 99, 0.2);
-            position: relative; overflow: hidden;
+            padding: 40px 20px; margin: 40px 0 20px; border: 2px solid rgba(233, 30, 99, 0.2);
         }
-        .ring-3d {
-            font-size: 60px; display: inline-block; animation: spinRing 4s linear infinite;
-            filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.5)); margin-bottom: 10px;
-        }
-        .proposal-text { font-size: 2.5rem; font-weight: 800; color: #880e4f; margin-bottom: 10px; animation: glowPulse 2s infinite; }
+        .ring-3d { font-size: 70px; display: inline-block; animation: spinRing 4s linear infinite; filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.5)); margin-bottom: 10px; }
+        .proposal-text { font-size: 2.8rem; font-weight: 800; color: #880e4f; margin-bottom: 10px; animation: glowPulse 2s infinite; }
         .proposal-sub { color: #888; font-size: 1.1rem; margin-bottom: 25px; }
-        .proposal-buttons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; position: relative; min-height: 60px; align-items: center; }
+        .proposal-buttons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; min-height: 60px; align-items: center; }
         .btn-yes { padding: 15px 50px; background: linear-gradient(135deg, #e91e63, #ad1457); color: #fff; border: none; border-radius: 60px; font-size: 1.3rem; font-weight: 700; cursor: pointer; box-shadow: 0 8px 30px rgba(233, 30, 99, 0.4); transition: all 0.3s ease; }
         .btn-yes:hover { transform: scale(1.1); box-shadow: 0 12px 45px rgba(233, 30, 99, 0.6); }
         .btn-no { padding: 15px 50px; background: #eee; color: #555; border: 2px solid #ddd; border-radius: 60px; font-size: 1.3rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; min-width: 120px; user-select: none; }
         .btn-no:hover { background: #ffcccc; color: #d32f2f; border-color: #d32f2f; }
 
-        /* ===== DIL KI BAAT ===== */
-        .dil-ki-baat {
-            text-align: center; background: #ffffff; border-radius: 25px; padding: 25px 20px; margin: 25px 0;
-            box-shadow: 0 5px 25px rgba(233, 30, 99, 0.08); border: 1px solid rgba(233, 30, 99, 0.1);
+        /* ===== ACTIONS (ROMANTIC BUTTONS) ===== */
+        .actions { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 35px 0; }
+        .btn {
+            padding: 16px 35px; border: none; border-radius: 60px; font-size: 1.1rem; font-weight: 700;
+            cursor: pointer; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px; position: relative;
+            overflow: hidden; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 32px rgba(233, 30, 99, 0.15);
+            color: #880e4f; letter-spacing: 0.5px; min-width: 160px;
         }
-        .dil-ki-baat h3 { color: #c2185b; font-size: 1.5rem; margin-bottom: 10px; }
-        .dil-ki-baat p { color: #555; font-size: 1rem; line-height: 1.8; font-style: italic; }
+        .btn:hover { transform: translateY(-4px) scale(1.03); background: rgba(255, 255, 255, 0.25); border-color: rgba(233, 30, 99, 0.4); box-shadow: 0 15px 40px rgba(233, 30, 99, 0.25); }
+        .btn:active { transform: scale(0.95); }
+        .btn .icon { font-size: 1.4rem; display: inline-block; transition: transform 0.3s ease; }
 
-        /* ===== OUR STORY ===== */
-        .our-story {
-            text-align: center; background: #ffffff; border-radius: 25px; padding: 25px 20px; margin: 25px 0;
-            box-shadow: 0 5px 25px rgba(233, 30, 99, 0.08); border: 1px solid rgba(233, 30, 99, 0.1);
-        }
-        .our-story h3 { color: #ad1457; font-size: 1.5rem; margin-bottom: 10px; }
-        .our-story p { color: #444; font-size: 1rem; line-height: 1.8; font-family: 'Georgia', serif; }
+        /* Read My Heart */
+        .btn-heart { background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(248, 187, 208, 0.2)); border-color: rgba(233, 30, 99, 0.3); }
+        .btn-heart:hover .icon { animation: wiggle 0.6s ease-in-out infinite; }
+        @keyframes wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+        .btn-heart::after { content: '❤️'; position: absolute; font-size: 0px; top: -10px; right: 10px; opacity: 0; transition: all 0.5s ease; }
+        .btn-heart:hover::after { font-size: 25px; opacity: 1; top: -20px; transform: translateY(-10px); }
 
-        /* ===== A SWEET SURPRISE NOTE ===== */
-        .surprise-note {
-            text-align: center; background: linear-gradient(145deg, #fce4ec, #fff); border-radius: 25px;
-            padding: 25px 20px; margin: 25px 0; border-left: 6px solid #e91e63;
-            box-shadow: 0 5px 25px rgba(233, 30, 99, 0.08);
-        }
-        .surprise-note h3 { color: #c2185b; font-size: 1.5rem; margin-bottom: 10px; }
-        .surprise-note p { color: #444; font-size: 1.05rem; line-height: 1.9; font-family: 'Georgia', serif; }
+        /* I Love You Unlimited */
+        .btn-unlimited { background: linear-gradient(135deg, rgba(136, 14, 79, 0.1), rgba(233, 30, 99, 0.2)); border-color: rgba(136, 14, 79, 0.3); color: #c2185b; }
+        .btn-unlimited:hover { background: linear-gradient(135deg, rgba(136, 14, 79, 0.2), rgba(233, 30, 99, 0.3)); border-color: #c2185b; }
+        .btn-unlimited .icon { font-weight: 900; transition: transform 0.6s ease; }
+        .btn-unlimited:hover .icon { transform: rotate(360deg) scale(1.2); }
+        .btn-unlimited::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent, rgba(233, 30, 99, 0.2), transparent, rgba(233, 30, 99, 0.2), transparent); animation: rotateGlitter 4s linear infinite; opacity: 0; transition: opacity 0.5s ease; }
+        .btn-unlimited:hover::before { opacity: 1; }
+        @keyframes rotateGlitter { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* ===== ACTIONS ===== */
-        .actions { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin: 35px 0; }
-        .btn { padding: 15px 38px; border: none; border-radius: 60px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.4s ease; display: inline-block; }
-        .btn-primary { background: linear-gradient(135deg, #e91e63, #ad1457); color: #fff; box-shadow: 0 8px 30px rgba(233, 30, 99, 0.4); }
-        .btn-primary:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 45px rgba(233, 30, 99, 0.5); }
-        .btn-unlimited { background: linear-gradient(135deg, #880e4f, #ad1457, #e91e63, #f06292); color: #fff; box-shadow: 0 8px 35px rgba(136, 14, 79, 0.5); position: relative; overflow: hidden; font-size: 1.3rem; padding: 16px 45px; background-size: 300% 300%; animation: gradientShift 4s ease infinite; }
-        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .btn-unlimited::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent); transform: rotate(45deg); transition: 0.6s; }
-        .btn-unlimited:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 55px rgba(136, 14, 79, 0.6); }
-        .btn-unlimited:hover::before { left: 100%; }
+        /* Surprise */
+        .btn-surprise { background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1)); border-color: rgba(255, 215, 0, 0.3); color: #b8860b; }
+        .btn-surprise:hover { background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2)); border-color: #ffa500; color: #8b6508; }
+        .btn-surprise .icon { transition: transform 0.2s ease; }
+        .btn-surprise:active .icon { transform: scale(1.5) rotate(20deg); }
 
         /* ===== TYPING MESSAGE BOX ===== */
         .message-box { display: none; background: #ffffff; padding: 40px 45px; border-radius: 30px; margin: 25px 0; box-shadow: 0 25px 70px rgba(233, 30, 99, 0.3); border-left: 8px solid #e91e63; animation: slideInRight 0.8s ease; position: relative; overflow: hidden; max-height: 85vh; overflow-y: auto; }
@@ -193,27 +228,21 @@
         .close-btn { margin-top: 25px; padding: 12px 30px; background: #fce4ec; color: #e91e63; border: none; border-radius: 60px; font-size: 1.1rem; cursor: pointer; font-weight: 700; transition: 0.4s; display: block; margin: auto; box-shadow: 0 4px 15px rgba(233, 30, 99, 0.15); }
         .close-btn:hover { background: #f8bbd0; transform: scale(1.08); }
 
-        /* ===== MODERN POPUP OVERLAYS ===== */
+        /* ===== POPUPS ===== */
         .popup-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(12px); z-index: 9999;
             justify-content: center; align-items: center;
         }
         .popup-overlay.show { display: flex; }
-
         .popup-box {
             background: #ffffff; padding: 40px; border-radius: 30px; text-align: center;
             max-width: 450px; width: 90%; box-shadow: 0 30px 80px rgba(233, 30, 99, 0.4);
-            animation: slideInRight 0.6s ease; border-left: 8px solid #e91e63;
-            position: relative;
+            animation: slideInRight 0.6s ease; border-left: 8px solid #e91e63; position: relative;
         }
         .popup-box h2 { font-size: 2.2rem; color: #c2185b; margin-bottom: 15px; }
         .popup-box p { font-size: 1.1rem; color: #555; line-height: 1.8; }
-        .popup-box .btn-ok {
-            margin-top: 20px; padding: 12px 40px; background: linear-gradient(135deg, #e91e63, #ad1457);
-            color: #fff; border: none; border-radius: 60px; font-size: 1rem; font-weight: 700;
-            cursor: pointer; transition: 0.3s; box-shadow: 0 5px 20px rgba(233, 30, 99, 0.3);
-        }
+        .popup-box .btn-ok { margin-top: 20px; padding: 12px 40px; background: linear-gradient(135deg, #e91e63, #ad1457); color: #fff; border: none; border-radius: 60px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 20px rgba(233, 30, 99, 0.3); }
         .popup-box .btn-ok:hover { transform: scale(1.05); }
 
         /* ===== CONGRATS POPUP ===== */
@@ -233,27 +262,32 @@
         .congrats-box .ring-emoji { font-size: 80px; display: block; margin-bottom: 10px; animation: heartbeat 1.5s infinite; }
 
         /* ===== FOOTER ===== */
-        .footer { text-align: center; margin-top: 30px; color: #aaa; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 20px; }
+        .footer { text-align: center; margin-top: 40px; color: #aaa; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 20px; }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
             .container { padding: 25px 15px; }
-            .header h1 { font-size: 2.2rem; }
+            .header h1 { font-size: 2.5rem; }
+            .header .heart-icon { font-size: 60px; }
             .poetry-box { padding: 25px 15px; }
             .poetry-box h2 { font-size: 1.5rem; }
             .poetry-box p { font-size: 1rem; }
-            .features { gap: 15px; }
-            .feature-card { padding: 20px 10px; }
-            .emoji-circle { width: 55px; height: 55px; }
-            .emoji-circle span { font-size: 26px; }
-            .actions { flex-direction: column; align-items: center; }
-            .btn { width: 85%; text-align: center; }
+            .reason-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 10px; }
+            .timeline-item::before { left: -16px; }
             .message-box { padding: 20px; }
-            .message-box p { font-size: 0.95rem; line-height: 1.9; }
-            .proposal-text { font-size: 1.8rem; }
+            .proposal-text { font-size: 2rem; }
             .proposal-buttons { gap: 15px; }
             .btn-yes, .btn-no { padding: 12px 30px; font-size: 1rem; min-width: 100px; }
             .popup-box { padding: 25px; }
             .popup-box h2 { font-size: 1.8rem; }
+            .gift-section .gift-box { font-size: 70px; }
+            .actions { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+            .btn { padding: 14px 20px; font-size: 0.95rem; min-width: 120px; flex: 1; gap: 8px; }
+            .btn .icon { font-size: 1.2rem; }
+        }
+        @media (max-width: 400px) {
+            .btn { font-size: 0.85rem; padding: 12px 15px; min-width: 100px; }
         }
     </style>
 </head>
@@ -263,13 +297,14 @@
     <div class="bg-words-container" id="starsContainer"></div>
 
     <div class="container">
+        <!-- 1. HEADER -->
         <div class="header">
             <div class="heart-icon">❤️</div>
             <h1>For My Princess</h1>
             <p>My unlimited love for you</p>
         </div>
 
-        <!-- POETRY HERO -->
+        <!-- 2. POETRY -->
         <div class="poetry-hero">
             <div class="poetry-box">
                 <h2>❤️ A Romantic Poem ❤️</h2>
@@ -287,7 +322,7 @@
             </div>
         </div>
 
-        <!-- FEATURES -->
+        <!-- 3. FEATURES -->
         <div class="features">
             <div class="feature-card"><div class="emoji-circle"><span>💖</span></div><h3>Beautiful Soul</h3><p>Your kindness lights up every room</p></div>
             <div class="feature-card"><div class="emoji-circle"><span>🌟</span></div><h3>My Star</h3><p>You guide me through the darkest nights</p></div>
@@ -295,13 +330,70 @@
             <div class="feature-card"><div class="emoji-circle"><span>💎</span></div><h3>Precious</h3><p>You're the most valuable part of my life</p></div>
         </div>
 
+        <!-- 4. LOVE METER -->
         <div class="love-meter">
             <h3>❤️ My Love For You ❤️</h3>
             <div class="meter-bar"><div class="meter-fill"></div></div>
             <div class="meter-text">Unlimited ❤️</div>
         </div>
 
-        <!-- PROPOSAL SECTION WITH SPINNING RING -->
+        <!-- 5. OUR BEAUTIFUL JOURNEY -->
+        <div class="journey">
+            <h2>📖 Our Beautiful Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>💕 The First Meeting</h4>
+                    <p>The moment I saw you, I knew my heart had found its home. The world stopped, and you were the only one in focus.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>🌹 The First Date</h4>
+                    <p>Everything about that day was magical. Your smile, your laugh, the way the light shone in your eyes. I fell a little more in love.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>💖 The First "I Love You"</h4>
+                    <p>It wasn't planned. It just slipped out from the depths of my soul. And when you said it back, my world became perfect.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>🤗 Today, Right Now</h4>
+                    <p>Standing here, with all these memories, I know one thing for sure: My future belongs to you. Only you.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. 10 REASONS I LOVE YOU -->
+        <div class="reasons">
+            <h2>✨ 10 Reasons I Love You ✨</h2>
+            <div class="reason-grid">
+                <div class="reason-card"><span class="num">1</span><p>Your smile lights up my darkest days.</p></div>
+                <div class="reason-card"><span class="num">2</span><p>Your laugh is my favorite melody.</p></div>
+                <div class="reason-card"><span class="num">3</span><p>You have the kindest and purest soul.</p></div>
+                <div class="reason-card"><span class="num">4</span><p>You make me want to be a better man.</p></div>
+                <div class="reason-card"><span class="num">5</span><p>Your eyes hold the stars and my future.</p></div>
+                <div class="reason-card"><span class="num">6</span><p>You understand me without words.</p></div>
+                <div class="reason-card"><span class="num">7</span><p>You are my peace in this chaotic world.</p></div>
+                <div class="reason-card"><span class="num">8</span><p>You dance like nobody is watching.</p></div>
+                <div class="reason-card"><span class="num">9</span><p>You love me for exactly who I am.</p></div>
+                <div class="reason-card"><span class="num">10</span><p>Because... you are you. And you are my everything.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. THE GIFT -->
+        <div class="gift-section">
+            <h2>🎁 The Gift I Want To Give You</h2>
+            <span class="gift-box">🎀</span>
+            <p>It's not diamonds, not gold, not anything money can buy. It's my promise, my loyalty, my forever. 
+            The gift is <strong>my entire life</strong>, spent loving you, caring for you, and making you smile every single day.</p>
+        </div>
+
+        <!-- 8. MY FINAL WORDS -->
+        <div class="final-words">
+            <h2>💬 My Final Words Before I Ask...</h2>
+            <p>"I've traveled this world looking for a reason to smile, and I found it the day I found you. 
+            You are the reason my heart beats, the reason I wake up with hope. I have loved you in every lifetime, 
+            and I want to love you in this one. Forever."</p>
+        </div>
+
+        <!-- 9. PROPOSAL SECTION -->
         <div class="proposal-section">
             <div class="ring-3d">💍</div>
             <div class="proposal-text">Will You Marry Me?</div>
@@ -312,32 +404,22 @@
             </div>
         </div>
 
-        <!-- DIL KI BAAT -->
-        <div class="dil-ki-baat">
-            <h3>💌 Dil Ki Baat</h3>
-            <p>"Har subah teri yaad se shuru hoti hai, aur har raat teri soch mein guzarti hai. Tum ho toh zindagi ek khoobsurat kahani hai."</p>
-        </div>
-
-        <!-- OUR STORY -->
-        <div class="our-story">
-            <h3>📖 Our Story</h3>
-            <p>"Every moment we spent together, every laugh, every tear, has made this moment perfect. It all led to this one question..."</p>
-        </div>
-
-        <!-- A SWEET SURPRISE NOTE -->
-        <div class="surprise-note">
-            <h3>🎁 A Surprise For You</h3>
-            <p>"You thought this was just a website? No, my love... This is the beginning of our forever. Let's build a beautiful life together."</p>
-        </div>
-
-        <!-- ACTIONS -->
+        <!-- 10. IMPROVED ACTIONS BUTTONS -->
         <div class="actions">
-            <button class="btn btn-primary" onclick="showMessage()">💌 Read My Heart</button>
-            <button class="btn btn-unlimited" onclick="openUnlimitedPopup()">I Love You ♾️</button>
-            <button class="btn btn-primary" onclick="openSurprisePopup()">🎉 Surprise!</button>
+            <button class="btn btn-heart" onclick="showMessage()">
+                <span class="icon">💌</span> Read My Heart
+            </button>
+            
+            <button class="btn btn-unlimited" onclick="openUnlimitedPopup()">
+                <span class="icon">♾️</span> I Love You
+            </button>
+            
+            <button class="btn btn-surprise" onclick="openSurprisePopup()">
+                <span class="icon">🎉</span> Surprise!
+            </button>
         </div>
 
-        <!-- TYPING EFFECT MESSAGE BOX -->
+        <!-- MESSAGE BOX -->
         <div class="message-box" id="messageBox">
             <h3>To My Beautiful Princess ❤️</h3>
             <div id="msgBody"></div>
@@ -347,7 +429,7 @@
         <div class="footer">Made with <span>❤️</span> for the most amazing girl in the world</div>
     </div>
 
-    <!-- ===== MODERN POPUP FOR "I LOVE YOU" ===== -->
+    <!-- ===== POPUPS ===== -->
     <div class="popup-overlay" id="unlimitedPopup">
         <div class="popup-box">
             <div style="font-size: 50px; animation: heartbeat 1.5s infinite;">💖</div>
@@ -357,7 +439,6 @@
         </div>
     </div>
 
-    <!-- ===== MODERN POPUP FOR "SURPRISE" ===== -->
     <div class="popup-overlay" id="surprisePopup">
         <div class="popup-box">
             <div style="font-size: 50px;">🎉</div>
@@ -384,36 +465,24 @@
         function shrinkNo() {
             const btn = document.getElementById('noBtn');
             noClickCount++;
-            
             let currentSize = 1 - (noClickCount * 0.1); 
             if (currentSize < 0.1) currentSize = 0; 
-            
             btn.style.transform = `scale(${currentSize})`;
             btn.style.opacity = currentSize; 
-
-            if(noClickCount <= 3) {
-                btn.innerText = noTexts[noClickCount];
-            }
-            
-            if (currentSize <= 0) {
-                btn.style.display = 'none'; 
-            }
+            if(noClickCount <= 3) { btn.innerText = noTexts[noClickCount]; }
+            if (currentSize <= 0) { btn.style.display = 'none'; }
         }
 
         // ===== SAY YES =====
         function sayYes() {
             document.getElementById('congratsOverlay').classList.add('show');
-            // Rainbow Confetti + Hearts
             for (let i = 0; i < 300; i++) {
                 setTimeout(() => {
                     const el = document.createElement('div');
-                    el.style.position = 'fixed';
-                    el.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                    el.style.position = 'fixed'; el.style.fontSize = (Math.random() * 25 + 15) + 'px';
                     el.style.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
-                    el.style.left = Math.random() * 100 + '%';
-                    el.style.top = Math.random() * 100 + '%';
-                    el.style.pointerEvents = 'none';
-                    el.style.zIndex = '99999';
+                    el.style.left = Math.random() * 100 + '%'; el.style.top = Math.random() * 100 + '%';
+                    el.style.pointerEvents = 'none'; el.style.zIndex = '99999';
                     el.style.transform = `rotate(${Math.random()*360}deg)`;
                     el.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
                     el.innerHTML = ['❤️','💕','💗','💖','🥰','💘','💍','✨','🎆','🎇','🌟','💫'][Math.floor(Math.random()*12)];
@@ -422,13 +491,11 @@
                 }, i * 25);
             }
         }
-
         function closeCongrats() { document.getElementById('congratsOverlay').classList.remove('show'); }
 
-        // ===== OPEN POPUPS (NO ALERT) =====
+        // ===== OPEN POPUPS =====
         function openUnlimitedPopup() {
             document.getElementById('unlimitedPopup').classList.add('show');
-            // Small heart rain for unlimited popup
             for (let i = 0; i < 40; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
@@ -443,10 +510,8 @@
                 }, i * 50);
             }
         }
-
         function openSurprisePopup() {
             document.getElementById('surprisePopup').classList.add('show');
-            // Star rain for surprise popup
             for (let i = 0; i < 40; i++) {
                 setTimeout(() => {
                     const star = document.createElement('div');
@@ -461,10 +526,7 @@
                 }, i * 50);
             }
         }
-
-        function closePopup(id) {
-            document.getElementById(id).classList.remove('show');
-        }
+        function closePopup(id) { document.getElementById(id).classList.remove('show'); }
 
         // ===== TYPING EFFECT =====
         function showMessage() {
@@ -474,40 +536,35 @@
             typeWriter();
         }
         function hideMessage() { document.getElementById('messageBox').classList.remove('show'); }
-
         const loveText = [
             "My Dearest Love,",
-            "I’m sitting here, trying to find the perfect words to describe what you mean to me, but I realize that words will never be enough. You are the light that guides me through every single storm.",
-            "You make me a better man, my love. Before you, I didn't know I could feel this deeply. You inspire me to work harder, to dream bigger, and to love more openly.",
-            "No matter how many years pass, I promise you this: My love for you will never fade. It will only grow stronger with every sunrise and deeper with every sunset.",
-            "So here’s my heart, completely naked and vulnerable, just for you. Take it, hold it, and keep it safe. Because it will always, always beat only for you.",
+            "I’m sitting here, trying to find the perfect words to describe what you mean to me, but I realize that words will never be enough.",
+            "You are the light that guides me through every single storm. Before you, my world was gray. Now it has color.",
+            "You make me a better man, my love. You inspire me to work harder, to dream bigger, and to love more openly.",
+            "I promise you this: My love for you will never fade. It will only grow stronger with every sunrise.",
+            "So here’s my heart, completely naked and vulnerable, just for you. Take it, hold it, and keep it safe.",
+            "Because it will always, always beat only for you.",
             "Yours forever and always, Your Love 💕"
         ];
-        let lineIndex = 0;
-        let charIndex = 0;
-
+        let lineIndex = 0, charIndex = 0;
         function typeWriter() {
             const msgBody = document.getElementById('msgBody');
             if (lineIndex < loveText.length) {
                 if (charIndex < loveText[lineIndex].length) {
                     msgBody.innerHTML += loveText[lineIndex].charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeWriter, 30);
+                    charIndex++; setTimeout(typeWriter, 30);
                 } else {
                     msgBody.innerHTML += "<br><br>";
-                    lineIndex++;
-                    charIndex = 0;
-                    setTimeout(typeWriter, 500);
+                    lineIndex++; charIndex = 0; setTimeout(typeWriter, 500);
                 }
             }
         }
 
-        // ===== ROSE PETALS FALLING =====
+        // ===== ROSE PETALS =====
         function createPetals() {
             setInterval(() => {
                 const petal = document.createElement('div');
-                petal.className = 'petal';
-                petal.innerHTML = '🌹';
+                petal.className = 'petal'; petal.innerHTML = '🌹';
                 petal.style.left = Math.random() * 100 + '%';
                 petal.style.fontSize = (Math.random() * 20 + 20) + 'px';
                 petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
@@ -518,31 +575,26 @@
         }
         createPetals();
 
-        // ===== STARS & SHOOTING STARS =====
+        // ===== STARS =====
         function createStars() {
             const container = document.getElementById('starsContainer');
             for(let i=0; i<100; i++) {
                 const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = (Math.random()*3 + 1) + 'px';
-                star.style.height = star.style.width;
-                star.style.left = Math.random()*100 + '%';
-                star.style.top = Math.random()*100 + '%';
-                star.style.animationDelay = Math.random()*5 + 's';
+                star.className = 'star'; star.style.width = (Math.random()*3 + 1) + 'px';
+                star.style.height = star.style.width; star.style.left = Math.random()*100 + '%';
+                star.style.top = Math.random()*100 + '%'; star.style.animationDelay = Math.random()*5 + 's';
                 container.appendChild(star);
             }
             for(let i=0; i<3; i++) {
                 const shoot = document.createElement('div');
-                shoot.className = 'shooting-star';
-                shoot.style.top = Math.random()*50 + '%';
-                shoot.style.left = Math.random()*80 + 10 + '%';
-                shoot.style.animationDelay = Math.random()*10 + 's';
+                shoot.className = 'shooting-star'; shoot.style.top = Math.random()*50 + '%';
+                shoot.style.left = Math.random()*80 + 10 + '%'; shoot.style.animationDelay = Math.random()*10 + 's';
                 container.appendChild(shoot);
             }
         }
         createStars();
 
-        // ===== CREATE CONFETTI =====
+        // ===== CONFETTI =====
         function createConfetti() {
             const colors = ['#e91e63', '#f06292', '#ad1457', '#f48fb1', '#ff80ab', '#ff4081', '#880e4f'];
             for (let i = 0; i < 70; i++) {

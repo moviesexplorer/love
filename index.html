@@ -72,6 +72,11 @@
         @keyframes glowPulse { 0%, 100% { text-shadow: 0 0 10px rgba(233, 30, 99, 0.3); } 50% { text-shadow: 0 0 30px rgba(233, 30, 99, 0.8); } }
         @keyframes spinRing { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        @keyframes candleFlicker {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 200, 100, 0.8), 0 0 30px rgba(255, 150, 50, 0.6); transform: scale(1) rotate(0deg); }
+            50% { text-shadow: 0 0 25px rgba(255, 200, 100, 1), 0 0 50px rgba(255, 150, 50, 0.8); transform: scale(1.05) rotate(2deg); }
+            75% { text-shadow: 0 0 15px rgba(255, 200, 100, 0.7), 0 0 35px rgba(255, 150, 50, 0.5); transform: scale(0.98) rotate(-2deg); }
+        }
 
         /* ===== HEADER ===== */
         .header { text-align: center; margin-bottom: 30px; }
@@ -169,15 +174,34 @@
         .final-words h2 { color: #c2185b; font-size: 2rem; margin-bottom: 15px; }
         .final-words p { color: #444; font-size: 1.1rem; line-height: 2; font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; }
 
-        /* ===== PROPOSAL ===== */
+        /* ===== PROPOSAL SECTION (With Candle & Rose) ===== */
         .proposal-section {
             text-align: center; background: linear-gradient(145deg, #fff, #fce4ec); border-radius: 30px;
             padding: 40px 20px; margin: 40px 0 20px; border: 2px solid rgba(233, 30, 99, 0.2);
+            position: relative; overflow: hidden;
         }
-        .ring-3d { font-size: 70px; display: inline-block; animation: spinRing 4s linear infinite; filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.5)); margin-bottom: 10px; }
-        .proposal-text { font-size: 2.8rem; font-weight: 800; color: #880e4f; margin-bottom: 10px; animation: glowPulse 2s infinite; }
-        .proposal-sub { color: #888; font-size: 1.1rem; margin-bottom: 25px; }
-        .proposal-buttons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; min-height: 60px; align-items: center; }
+        /* Candle Flicker Effect */
+        .proposal-section::before {
+            content: '🕯️';
+            position: absolute; top: -10px; left: 10px; font-size: 60px;
+            animation: candleFlicker 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 200, 100, 0.5));
+            transform-origin: bottom;
+            pointer-events: none;
+        }
+        /* Floating Rose Effect */
+        .proposal-section::after {
+            content: '🌹';
+            position: absolute; bottom: -10px; right: 10px; font-size: 60px;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+            filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.3));
+        }
+
+        .ring-3d { font-size: 70px; display: inline-block; animation: spinRing 4s linear infinite; filter: drop-shadow(0 5px 15px rgba(233, 30, 99, 0.5)); margin-bottom: 10px; position: relative; z-index: 2; }
+        .proposal-text { font-size: 2.8rem; font-weight: 800; color: #880e4f; margin-bottom: 10px; animation: glowPulse 2s infinite; position: relative; z-index: 2; }
+        .proposal-sub { color: #888; font-size: 1.1rem; margin-bottom: 25px; position: relative; z-index: 2; }
+        .proposal-buttons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; min-height: 60px; align-items: center; position: relative; z-index: 2; }
         .btn-yes { padding: 15px 50px; background: linear-gradient(135deg, #e91e63, #ad1457); color: #fff; border: none; border-radius: 60px; font-size: 1.3rem; font-weight: 700; cursor: pointer; box-shadow: 0 8px 30px rgba(233, 30, 99, 0.4); transition: all 0.3s ease; }
         .btn-yes:hover { transform: scale(1.1); box-shadow: 0 12px 45px rgba(233, 30, 99, 0.6); }
         .btn-no { padding: 15px 50px; background: #eee; color: #555; border: 2px solid #ddd; border-radius: 60px; font-size: 1.3rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; min-width: 120px; user-select: none; }
@@ -285,6 +309,7 @@
             .actions { flex-direction: row; flex-wrap: wrap; gap: 12px; }
             .btn { padding: 14px 20px; font-size: 0.95rem; min-width: 120px; flex: 1; gap: 8px; }
             .btn .icon { font-size: 1.2rem; }
+            .proposal-section::before, .proposal-section::after { font-size: 40px; }
         }
         @media (max-width: 400px) {
             .btn { font-size: 0.85rem; padding: 12px 15px; min-width: 100px; }
@@ -292,6 +317,10 @@
     </style>
 </head>
 <body>
+
+    <!-- BACKGROUND MUSIC (YOUR SONG - O RE PIYA) -->
+    <!-- Auto-plays on load, loops, muted at start to bypass browser policies -->
+    <iframe id="bgMusic" width="0" height="0" src="https://www.youtube.com/embed/kw4tT7SCmaY?autoplay=1&mute=1&loop=1&playlist=kw4tT7SCmaY" allow="autoplay; encrypted-media"></iframe>
 
     <!-- NIGHT SKY BACKGROUND -->
     <div class="bg-words-container" id="starsContainer"></div>
@@ -393,7 +422,7 @@
             and I want to love you in this one. Forever."</p>
         </div>
 
-        <!-- 9. PROPOSAL SECTION -->
+        <!-- 9. PROPOSAL SECTION (CANDLE & ROSE INCLUDED) -->
         <div class="proposal-section">
             <div class="ring-3d">💍</div>
             <div class="proposal-text">Will You Marry Me?</div>

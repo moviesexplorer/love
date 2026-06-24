@@ -83,9 +83,9 @@
         .header p { color: #ad1457; font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; }
 
         /* ===== POETRY HERO ===== */
-        .poetry-hero { text-align: center; padding: 20px 0 10px; }
+        .poetry-hero { text-align: center; padding: 10px 0; }
         .poetry-box {
-            background: linear-gradient(145deg, #fff0f3, #ffffff); border-radius: 30px; padding: 35px 25px;
+            background: linear-gradient(145deg, #fff0f3, #ffffff); border-radius: 30px; padding: 30px 25px;
             border-left: 8px solid #e91e63; border-right: 8px solid #e91e63;
             box-shadow: 0 10px 40px rgba(233, 30, 99, 0.15); position: relative; max-width: 600px; margin: 0 auto;
         }
@@ -148,7 +148,7 @@
         .btn-no { padding: 15px 50px; background: #eee; color: #555; border: 2px solid #ddd; border-radius: 60px; font-size: 1.3rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; min-width: 120px; user-select: none; }
         .btn-no:hover { background: #ffcccc; color: #d32f2f; border-color: #d32f2f; }
 
-        /* ===== NEW: DIL KI BAAT SECTION ===== */
+        /* ===== DIL KI BAAT SECTION ===== */
         .dil-ki-baat {
             text-align: center; background: #ffffff; border-radius: 25px; padding: 25px 20px; margin: 25px 0;
             box-shadow: 0 5px 25px rgba(233, 30, 99, 0.08); border: 1px solid rgba(233, 30, 99, 0.1);
@@ -156,14 +156,22 @@
         .dil-ki-baat h3 { color: #c2185b; font-size: 1.5rem; margin-bottom: 10px; }
         .dil-ki-baat p { color: #555; font-size: 1rem; line-height: 1.8; font-style: italic; }
 
-        /* ===== NEW: A PROMISE FOR LIFE ===== */
-        .promise-section {
+        /* ===== OUR STORY SECTION (Music ki jagah) ===== */
+        .our-story {
+            text-align: center; background: #ffffff; border-radius: 25px; padding: 25px 20px; margin: 25px 0;
+            box-shadow: 0 5px 25px rgba(233, 30, 99, 0.08); border: 1px solid rgba(233, 30, 99, 0.1);
+        }
+        .our-story h3 { color: #ad1457; font-size: 1.5rem; margin-bottom: 10px; }
+        .our-story p { color: #444; font-size: 1rem; line-height: 1.8; font-family: 'Georgia', serif; }
+
+        /* ===== A SWEET SURPRISE NOTE (Photos ki jagah) ===== */
+        .surprise-note {
             text-align: center; background: linear-gradient(145deg, #fce4ec, #fff); border-radius: 25px;
             padding: 25px 20px; margin: 25px 0; border-left: 6px solid #e91e63;
             box-shadow: 0 5px 25px rgba(233, 30, 99, 0.08);
         }
-        .promise-section h3 { color: #ad1457; font-size: 1.5rem; margin-bottom: 10px; }
-        .promise-section p { color: #444; font-size: 1.05rem; line-height: 1.9; font-family: 'Georgia', serif; }
+        .surprise-note h3 { color: #c2185b; font-size: 1.5rem; margin-bottom: 10px; }
+        .surprise-note p { color: #444; font-size: 1.05rem; line-height: 1.9; font-family: 'Georgia', serif; }
 
         /* ===== ACTIONS ===== */
         .actions { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin: 35px 0; }
@@ -221,9 +229,6 @@
     <!-- NIGHT SKY BACKGROUND -->
     <div class="bg-words-container" id="starsContainer"></div>
 
-    <!-- BACKGROUND MUSIC (Auto Play) -->
-    <iframe id="bgMusic" width="0" height="0" src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&mute=1&loop=1&playlist=2Vv-BfVoq4g" allow="autoplay; encrypted-media"></iframe>
-
     <div class="container">
         <div class="header">
             <div class="heart-icon">❤️</div>
@@ -274,16 +279,22 @@
             </div>
         </div>
 
-        <!-- NEW: DIL KI BAAT SECTION (Timer ki jagah) -->
+        <!-- DIL KI BAAT -->
         <div class="dil-ki-baat">
             <h3>💌 Dil Ki Baat</h3>
             <p>"Har subah teri yaad se shuru hoti hai, aur har raat teri soch mein guzarti hai. Tum ho toh zindagi ek khoobsurat kahani hai."</p>
         </div>
 
-        <!-- NEW: A PROMISE FOR LIFE (Urdu button ki jagah) -->
-        <div class="promise-section">
-            <h3>🤝 A Promise For Life</h3>
-            <p>"I promise to be your strength, your joy, and your safe place. Through every sunrise and every sunset, I will choose you. Always."</p>
+        <!-- OUR STORY (Music ki jagah) -->
+        <div class="our-story">
+            <h3>📖 Our Story</h3>
+            <p>"Every moment we spent together, every laugh, every tear, has made this moment perfect. It all led to this one question..."</p>
+        </div>
+
+        <!-- A SWEET SURPRISE NOTE (Photos ki jagah) -->
+        <div class="surprise-note">
+            <h3>🎁 A Surprise For You</h3>
+            <p>"You thought this was just a website? No, my love... This is the beginning of our forever. Let's build a beautiful life together."</p>
         </div>
 
         <!-- ACTIONS -->
@@ -339,11 +350,12 @@
         // ===== SAY YES =====
         function sayYes() {
             document.getElementById('congratsOverlay').classList.add('show');
-            for (let i = 0; i < 250; i++) {
+            // Rainbow Confetti + Hearts
+            for (let i = 0; i < 300; i++) {
                 setTimeout(() => {
                     const el = document.createElement('div');
                     el.style.position = 'fixed';
-                    el.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    el.style.fontSize = (Math.random() * 25 + 15) + 'px';
                     el.style.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
                     el.style.left = Math.random() * 100 + '%';
                     el.style.top = Math.random() * 100 + '%';
@@ -351,10 +363,10 @@
                     el.style.zIndex = '99999';
                     el.style.transform = `rotate(${Math.random()*360}deg)`;
                     el.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
-                    el.innerHTML = ['❤️','💕','💗','💖','🥰','💘','💍','✨','🎆','🎇'][Math.floor(Math.random()*10)];
+                    el.innerHTML = ['❤️','💕','💗','💖','🥰','💘','💍','✨','🎆','🎇','🌟','💫'][Math.floor(Math.random()*12)];
                     document.body.appendChild(el);
                     setTimeout(() => el.remove(), 4000);
-                }, i * 30);
+                }, i * 25);
             }
         }
 
